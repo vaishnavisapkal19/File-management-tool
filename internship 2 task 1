@@ -1,0 +1,83 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+void writeToFile(const string& filename) {
+    ofstream file(filename, ios::out); 
+    if (!file) {
+        cout << "Error opening file for writing!" << endl;
+        return;
+    }
+    string data;
+    cout << "Enter data to write to the file: ";
+    cin.ignore(); 
+    getline(cin, data);
+    file << data << endl;
+    file.close();
+    cout << "Data written successfully!" << endl;
+}
+
+void appendToFile(const string& filename) {
+    ofstream file(filename, ios::app); 
+    if (!file) {
+        cout << "Error opening file for appending!" << endl;
+        return;
+    }
+    string data;
+    cout << "Enter data to append to the file: ";
+    cin.ignore(); 
+    getline(cin, data);
+    file << data << endl;
+    file.close();
+    cout << "Data appended successfully!" << endl;
+}
+
+void readFromFile(const string& filename) {
+    ifstream file(filename, ios::in); 
+    if (!file) {
+        cout << "Error opening file for reading!" << endl;
+        return;
+    }
+    string line;
+    cout << "Contents of the file:" << endl;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+    file.close();
+}
+
+int main() {
+    string filename = "example.txt";
+    int choice;
+
+    do {
+        cout << "\nFile Management Tool\n";
+        cout << "1. Write to file\n";
+        cout << "2. Append to file\n";
+        cout << "3. Read from file\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                writeToFile(filename);
+                break;
+            case 2:
+                appendToFile(filename);
+                break;
+            case 3:
+                readFromFile(filename);
+                break;
+            case 4:
+                cout << "Exiting program. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
