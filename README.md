@@ -24,3 +24,7 @@ The main function acts as the user interface for the program. It continuously di
 One notable detail in both the writeToFile and appendToFile functions is the use of cin.ignore() before getline(). This is necessary to clear any leftover newline characters from previous cin operations, ensuring that the user’s input is read correctly.
 
 Overall, this program is a useful demonstration of file handling in C++, combining file streams with user input in a simple, menu-driven format. It teaches key programming concepts such as file I/O, error handling, string manipulation, and control structures, making it an excellent example for beginners learning about file operations in C++
+
+OUTPUT: 
+
+<img width="276" height="151" alt="Image" src="https://github.com/user-attachments/assets/3fe34807-85e0-4cc4-8f82-59f029842336" />
